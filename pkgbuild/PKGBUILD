@@ -2,7 +2,7 @@
 # Maintainer: Tales A. Mendonça <talesam@gmail.com>
 #Contributor: Narayan Silva <narayan.song@gmail.com>
 
-pkgname=pkgbuild-template-translate
+pkgname=kanri
 pkgdesc="Package template for BigCommunity"
 # Uncomment and edit the following lines as needed
 depends=('cairo' 'desktop-file-utils' 'gdk-pixbuf2' 'glib2' 'gtk3' 'hicolor-icon-theme' 'libsoup' 'pango' 'webkit2gtk-4.1')
@@ -15,7 +15,7 @@ pkgver=$(${pkgver})
 pkgrel=$(date +%H%M)
 arch=('any')
 license=('GPL-3.0-or-later')
-url="https://github.com/kanriapp/kanri"
+url="https://github.com/big-comm/${pkgname}"
 source=("${_pkgname}_${pkgver}.deb::https://github.com/kanriapp/kanri/releases/download/app-v${pkgver}/${_pkgname}_${pkgver}_amd64.deb" "kanri-wrapper.sh")
 md5sums=('SKIP')
 sha256sums=('SKIP')
