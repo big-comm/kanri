@@ -16,7 +16,7 @@ pkgrel=$(date +%H%M)
 arch=('any')
 license=('GPL-3.0-or-later')
 url="https://github.com/big-comm/${pkgname}"
-source=("${_pkgname}_${pkgver}.deb::https://github.com/kanriapp/kanri/releases/download/app-v${pkgver}/${pkgname}_${pkgver}_amd64.deb")
+source=("${_pkgname}_${pkgver}.AppImage::https://github.com/kanriapp/kanri/releases/download/app-v${pkgver}/${pkgname}_${pkgver}_amd64.AppImage")
 md5sums=('SKIP')
 sha256sums=('SKIP')
 
@@ -30,18 +30,6 @@ fi
 prepare() {
     ar x "${srcdir}/${_pkgname}_${pkgver}.deb"
     tar xf data.tar.gz
-}
-
-#build() {
-    #cd "${srcdir}/${pkgname}"
-    # Add build steps here, if needed
-    # For example: make
-#}
-
-check() {
-    cd "${srcdir}/${pkgname}"
-    # Add check/test steps here, if needed
-    # For example: make check
 }
 
 package() {
