@@ -3,7 +3,7 @@
 #Contributor: Narayan Silva <narayan.song@gmail.com>
 
 pkgname=kanri
-pkgdesc="Package template for BigCommunity"
+pkgdesc="Modern offline Kanban board app using tauri"
 # Uncomment and edit the following lines as needed
 depends=('cairo' 'desktop-file-utils' 'gdk-pixbuf2' 'glib2' 'gtk3' 'hicolor-icon-theme' 'libsoup' 'pango' 'webkit2gtk-4.1')
 makedepends=('binutils')
