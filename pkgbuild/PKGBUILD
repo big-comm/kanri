@@ -28,7 +28,7 @@ elif [ -e "pkgbuild.install" ]; then
 fi
 
 prepare() {
-    ar x "${srcdir}/${_pkgname}_${pkgver}.deb"
+    ar x "${srcdir}/${_pkgname}_${pkgver}.AppImage"
     tar xf data.tar.gz
 }
 
