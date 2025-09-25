@@ -16,7 +16,7 @@ pkgrel=$(date +%H%M)
 arch=('any')
 license=('GPL-3.0-or-later')
 url="https://github.com/big-comm/${pkgname}"
-source=("${pkgname}_${pkgver}.AppImage::https://github.com/kanriapp/kanri/releases/download/app-v${pkgver}/${pkgname}_${pkgver}_amd64.deb")
+source=("${pkgname}_${pkgver}.deb::https://github.com/kanriapp/kanri/releases/download/app-v${pkgver}/${pkgname}_${pkgver}_amd64.deb")
 md5sums=('SKIP')
 sha256sums=('SKIP')
 
