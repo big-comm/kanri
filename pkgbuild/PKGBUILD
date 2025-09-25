@@ -32,8 +32,8 @@ prepare() {
     tar xf data.tar.gz
 }
 
-build() {
-    cd "${srcdir}/${pkgname}"
+#build() {
+    #cd "${srcdir}/${pkgname}"
     # Add build steps here, if needed
     # For example: make
 }
