@@ -16,7 +16,7 @@ pkgrel=$(date +%H%M)
 arch=('any')
 license=('GPL-3.0-or-later')
 url="https://github.com/big-comm/${pkgname}"
-source=("${_pkgname}_${pkgver}.AppImage::https://github.com/kanriapp/kanri/releases/download/app-v${pkgver}/${pkgname}_${pkgver}_amd64.AppImage")
+source=("${pkgname}_${pkgver}.AppImage::https://github.com/kanriapp/kanri/releases/download/app-v${pkgver}/${pkgname}_${pkgver}_amd64.AppImage")
 md5sums=('SKIP')
 sha256sums=('SKIP')
 
@@ -28,12 +28,12 @@ elif [ -e "pkgbuild.install" ]; then
 fi
 
 prepare() {
-    ar x "${srcdir}/${_pkgname}_${pkgver}.AppImage"
+    ar x "${srcdir}/${pkgname}_${pkgver}.AppImage"
     tar xf data.tar.gz
 }
 
 package() {
-    install -Dm755 "${srcdir}/kanri-wrapper.sh" "${pkgdir}/usr/bin/kanri"
+    #install -Dm755 "${srcdir}/kanri-wrapper.sh" "${pkgdir}/usr/bin/kanri"
     install -Dm755 "${srcdir}/usr/bin/kanri" "${pkgdir}/usr/lib/kanri"
 
     cp -r "${srcdir}/usr/share" "${pkgdir}/usr/share"
