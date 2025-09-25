@@ -4,20 +4,14 @@
 
 pkgname=kanri
 pkgdesc="Modern offline Kanban board app using tauri"
-# Uncomment and edit the following lines as needed
 depends=('cairo' 'desktop-file-utils' 'gdk-pixbuf2' 'glib2' 'gtk3' 'hicolor-icon-theme' 'libsoup' 'pango' 'webkit2gtk-4.1')
 makedepends=('binutils')
-#optdepends=('')
-#conflicts=('')
-#provides=('')
-#replaces=('')
 pkgver=0.8.2
 pkgrel=$(date +%H%M)
-arch=('any')
+arch=('x86_64')
 license=('GPL-3.0-or-later')
 url="https://github.com/big-comm/${pkgname}"
-source=("${pkgname}_${pkgver}.deb::https://github.com/kanriapp/kanri/releases/download/app-v${pkgver}/${pkgname}_${pkgver}_amd64.deb" "kanri-wrapper.sh")
-md5sums=('SKIP')
+source=("${pkgname}_${pkgver}.deb::https://github.com/kanriapp/kanri/releases/download/app-v${pkgver}/${pkgname}_${pkgver}_amd64.deb")
 sha256sums=('SKIP')
 
 # Automatically detect and use the correct install file
@@ -33,8 +27,9 @@ prepare() {
 }
 
 package() {
-    install -Dm755 "${srcdir}/kanri-wrapper.sh" "${pkgdir}/usr/bin/kanri"
-    install -Dm755 "${srcdir}/usr/bin/kanri" "${pkgdir}/usr/lib/kanri"
-
+    # Install the binary to a temporary location - the .install script will create the wrapper
+    install -Dm755 "${srcdir}/usr/bin/kanri" "${pkgdir}/usr/lib/kanri/kanri-bin"
+    
+    # Copy shared files
     cp -r "${srcdir}/usr/share" "${pkgdir}/usr/share"
 }
