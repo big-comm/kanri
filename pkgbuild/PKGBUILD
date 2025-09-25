@@ -16,7 +16,7 @@ pkgrel=$(date +%H%M)
 arch=('any')
 license=('GPL-3.0-or-later')
 url="https://github.com/big-comm/${pkgname}"
-source=("${pkgname}_${pkgver}.deb::https://github.com/kanriapp/kanri/releases/download/app-v${pkgver}/${pkgname}_${pkgver}_amd64.deb")
+source=("${pkgname}_${pkgver}.deb::https://github.com/kanriapp/kanri/releases/download/app-v${pkgver}/${pkgname}_${pkgver}_amd64.deb" "kanri-wrapper.sh")
 md5sums=('SKIP')
 sha256sums=('SKIP')
 
@@ -33,7 +33,7 @@ prepare() {
 }
 
 package() {
-    #install -Dm755 "${srcdir}/kanri-wrapper.sh" "${pkgdir}/usr/bin/kanri"
+    install -Dm755 "${srcdir}/kanri-wrapper.sh" "${pkgdir}/usr/bin/kanri"
     install -Dm755 "${srcdir}/usr/bin/kanri" "${pkgdir}/usr/lib/kanri"
 
     cp -r "${srcdir}/usr/share" "${pkgdir}/usr/share"
